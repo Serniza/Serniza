@@ -1,0 +1,17 @@
+{
+    "author":
+    {
+        "name":"Serniza"
+    },
+    "description":"Attributes and utilities",
+    "displayName":"Serniza",
+    "keywords":[],
+    "license": "ISC",
+    "name":"com.nocompany.serniza",
+    "repository": 
+    {
+       "type": "git",
+       "url": "https://github.com/Serniza/Marte.git"
+     },
+    "version":"1.0.0"
+  }
