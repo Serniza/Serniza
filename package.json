@@ -4,13 +4,13 @@
         "name":"Serniza"
     },
     "description":"Attributes and utilities",
-    "displayName":"Serniza",
+    "displayName":"Core",
     "keywords":[],
     "name":"com.nocompany.serniza",
     "repository": 
     {
        "type": "git",
-       "url": "https://github.com/Serniza/Marte.git"
+       "url": "https://github.com/Serniza/Serniza.git"
      },
-    "version":"1.0.0"
+    "version":"1.0.1"
   }
