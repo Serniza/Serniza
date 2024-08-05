@@ -1,2 +1,2 @@
-# Serniza
+# com.nocompany.serniza
 Attributes and utilities
