@@ -331,9 +331,17 @@ namespace Attributes
                         if (serializedPropertyType == SerializedPropertyType.Generic)
 							GUILayout.Space(standardSpacing.x);
 
+						ReadOnly readOnly = GetPropertyAttribute<ReadOnly>(property);
+
+						if (readOnly != null)
+							GUI.enabled = false;
+
 						EditorGUILayout.PropertyField(property, true);
 
-                        EditorGUILayout.EndHorizontal();
+						if (readOnly != null)
+							GUI.enabled = true;
+
+						EditorGUILayout.EndHorizontal();
 					}
 					else
 						ShowFolder((Folder)folder.properties[i], false);
