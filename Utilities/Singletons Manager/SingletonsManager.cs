@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 namespace Utilities
 {
-    public class SingletonsManager : MonoBehaviour
-    {
+    public class SingletonsManager : UnityEngine.MonoBehaviour
+	{
         #region Variables & Properties
 
         static SingletonsManager instance;
@@ -59,7 +59,7 @@ namespace Utilities
             }
         }
         [SerializeField] List<SingletonData> singletonsData;
-        Dictionary<Type, MonoBehaviour> _singletons { get; set; }
+        Dictionary<Type, UnityEngine.MonoBehaviour> _singletons { get; set; }
 
         #endregion
 
@@ -85,7 +85,7 @@ namespace Utilities
 
         public void RegisterMonoBehaviours()
         {
-            _singletons = new Dictionary<Type, MonoBehaviour>();
+            _singletons = new Dictionary<Type, UnityEngine.MonoBehaviour>();
 
             if (singletonsData == null)
                 singletonsData = new List<SingletonData>();
@@ -132,7 +132,7 @@ namespace Utilities
 
                             if (component != null)
                             {
-                                MonoBehaviour monoBehaviour = (MonoBehaviour)component;
+								UnityEngine.MonoBehaviour monoBehaviour = (UnityEngine.MonoBehaviour)component;
 
                                 _singletons.Add(type, monoBehaviour);
 
@@ -161,7 +161,7 @@ namespace Utilities
             }
         }
 
-        public void RegisterMonoBehaviourAsSingleton<T>(T monoBehaviour, bool permanent = false) where T : MonoBehaviour
+        public void RegisterMonoBehaviourAsSingleton<T>(T monoBehaviour, bool permanent = false) where T : UnityEngine.MonoBehaviour
         {
             Type type = monoBehaviour.GetType();
 
@@ -181,20 +181,20 @@ namespace Utilities
             }
         }
 
-        public T GetSingleton<T>(bool findInTheSceneIfDoesNotExist = false, bool createItIfDoesNotExist = false, bool createLikeAPermanent = false) where T : MonoBehaviour
+        public T GetSingleton<T>(bool findInTheSceneIfDoesNotExist = false, bool createItIfDoesNotExist = false, bool createLikeAPermanent = false) where T : UnityEngine.MonoBehaviour
         {
             Type type = typeof(T);
 
             if (type.IsAbstract)
             {
-                foreach (KeyValuePair<Type,MonoBehaviour> singleton in _singletons)
+                foreach (KeyValuePair<Type, UnityEngine.MonoBehaviour> singleton in _singletons)
                 {
                     if (singleton.Key.IsSubclassOf(type))
                         return (T)singleton.Value;
                 }
             }
 
-            if (_singletons.TryGetValue(type, out MonoBehaviour monoBehaviour))
+            if (_singletons.TryGetValue(type, out UnityEngine.MonoBehaviour monoBehaviour))
                 return (T)monoBehaviour;
             else
             {
@@ -240,7 +240,7 @@ namespace Utilities
         {
             List<Type> missedTypes = new List<Type>();
 
-            foreach (KeyValuePair<Type, MonoBehaviour> singleton in _singletons)
+            foreach (KeyValuePair<Type, UnityEngine.MonoBehaviour> singleton in _singletons)
             {
                 if (singleton.Value == null)
                     missedTypes.Add(singleton.Key);

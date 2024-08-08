@@ -45,7 +45,7 @@ namespace Utilities
                         GUI.enabled = false;
                     else
                     {
-                        List<MonoBehaviour> monobehaviours = new List<MonoBehaviour>(((GameObject)gameObject.objectReferenceValue).GetComponents<MonoBehaviour>());
+                        List<UnityEngine.MonoBehaviour> monobehaviours = new List<UnityEngine.MonoBehaviour>(((GameObject)gameObject.objectReferenceValue).GetComponents<UnityEngine.MonoBehaviour>());
 
                         for (int j = 0, monobehavioursCount = monobehaviours.Count; j < monobehavioursCount; j++)
                         {
@@ -53,7 +53,7 @@ namespace Utilities
 
                             types.Add(type);
 
-                            while (type.BaseType != typeof(MonoBehaviour))
+                            while (type.BaseType != typeof(UnityEngine.MonoBehaviour))
                             {
                                 type = type.BaseType;
 
@@ -86,7 +86,7 @@ namespace Utilities
 
                     if (gameObject.objectReferenceValue != null)
                     {
-                        List<MonoBehaviour> monobehaviours = new List<MonoBehaviour>(((GameObject)gameObject.objectReferenceValue).GetComponents<MonoBehaviour>());
+                        List<UnityEngine.MonoBehaviour> monobehaviours = new List<UnityEngine.MonoBehaviour>(((GameObject)gameObject.objectReferenceValue).GetComponents<UnityEngine.MonoBehaviour>());
 
                         for (int j = 0, monobehavioursCount = monobehaviours.Count; j < monobehavioursCount; j++)
                         {
@@ -96,7 +96,7 @@ namespace Utilities
 
                             typesPath.Add(typePath);
 
-                            while (type.BaseType != typeof(MonoBehaviour))
+                            while (type.BaseType != typeof(UnityEngine.MonoBehaviour))
                             {
                                 type = type.BaseType;
 
